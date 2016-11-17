@@ -1,0 +1,22 @@
+<%= form_for(outing) do |f| %>
+  <% if outing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(outing.errors.count, "error") %> prohibited this outing from being saved:</h2>
+
+      <ul>
+      <% outing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

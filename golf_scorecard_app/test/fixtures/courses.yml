@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+old_course:
+  name: "St. Andrews Old Course"
+  id: 1
+  par: 72
+  yards: 6721
+  course_rating: 73.1
+  slope: 132
+
+minigolf:
+  name: 'Minigolf Course'
+  id: 2
+  par: 45
+  yards: 379

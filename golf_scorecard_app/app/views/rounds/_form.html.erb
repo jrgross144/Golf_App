@@ -1,0 +1,48 @@
+<%= form_for(round) do |f| %>
+  <% if round.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(round.errors.count, "error") %> prohibited this round from being saved:</h2>
+
+      <ul>
+      <% round.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :timestamp %>
+    <%= f.time_select :timestamp, value: Time.zone.now %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score %>
+    <%= f.number_field :score %>
+  </div>
+
+  <div id="course" class="field">
+    <%= f.label :course_id %>
+    <%= f.number_field :course_id, value: params[:course_id] %>
+    <div style="display:inline;"><%= Course.find(params[:course_id]).name unless params[:course_id].nil?%></div>
+
+  </div>
+
+  <div id="user" onclick="getUser(this)" class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id, value: session[:user] %>
+    <div style="display:inline;"><%= User.find(session[:user]).name if !session[:user].nil?%></div>
+  </div>
+
+
+  <div>
+    <%=f.label :outing_id %>
+    <%= f.number_field :outing_id, value: session[:outing] %>
+  </div>
+
+    <br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

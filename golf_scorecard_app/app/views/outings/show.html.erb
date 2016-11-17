@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  rounds = Round.where(outing_id: @outing.id)
+  winner = @outing.calculate_winner(rounds)
+  average = @outing.calculate_average(rounds)
+%>
+
+<table>
+  <thead>
+  <tr>
+    <th>Outing</th>
+    <th>Date</th>
+    <th>Course</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%=@outing.id%></td>
+      <td><%=@outing.date%></td>
+      <td><%= if !rounds.nil? && rounds != []
+                  Course.find(rounds.first.course_id).name
+              end %></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<table>
+  <thead>
+    <th>Player</th>
+    <th>Score</th>
+  </thead>
+  <tbody>
+    <% if !rounds.nil?
+         rounds.each  do |round| %>
+      <tr>
+        <td><%=User.find(round.user_id).name if !rounds.nil?%></td>
+        <td><%=round.score%></td>
+      </tr>
+    <% end
+      end %>
+  </tbody>
+</table>
+<div>Outing Average: <%=average%></div>
+<div>Outing Winner: <%if !winner.nil?
+                         %><%=User.find(winner.user_id).name %> with a score of <%=winner.score%><%
+                      else
+                        %>No Winner Declared Yet<%
+                     end%></div>
+
+<%= link_to 'Edit', edit_outing_path(@outing) %> |
+<td><%= link_to 'Destroy', @outing, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
+<%= link_to 'Back', outings_path %>

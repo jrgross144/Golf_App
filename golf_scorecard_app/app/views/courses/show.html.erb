@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Par:</strong>
+  <%= @course.par %>
+</p>
+
+<p>
+  <strong>Yards:</strong>
+  <%= @course.yards %>
+</p>
+
+<p>
+  <strong>Course rating:</strong>
+  <%= @course.course_rating %>
+</p>
+
+<p>
+  <strong>User average:</strong>
+  <%= @course.user_average %>
+</p>
+
+<p>
+  <strong>Slope:</strong>
+  <%= @course.slope %>
+</p>
+
+<%= link_to 'Add new Scorecard', new_round_path(:course_id => @course.id) %>
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

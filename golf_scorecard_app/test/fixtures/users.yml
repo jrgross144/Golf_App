@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Jordan Speith"
+  picture: "jordan.jpg"
+  handicap: 0
+  id: 1
+
+two:
+  name: "Rory"
+  picture: "rory.jpg"
+  handicap: 0
+  id: 2

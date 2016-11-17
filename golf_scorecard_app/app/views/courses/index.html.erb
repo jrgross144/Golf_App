@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Par</th>
+      <th>Yards</th>
+      <th>Course rating</th>
+      <th>User average</th>
+      <th>Slope</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= course.par %></td>
+        <td><%= course.yards %></td>
+        <td><%= course.course_rating %></td>
+        <td><%= course.user_average %></td>
+        <td><%= course.slope %></td>
+        <td><%= link_to 'Show', course %><br /><%= link_to 'Edit', edit_course_path(course) %><br /><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course', new_course_path %>
