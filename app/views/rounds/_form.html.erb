@@ -23,8 +23,8 @@
 
   <div id="course" class="field">
     <%= f.label :course_id %>
-    <%= f.number_field :course_id, value: params[:course_id] %>
-    <div style="display:inline;"><%= Course.find(params[:course_id]).name unless params[:course_id].nil?%></div>
+    <%= f.number_field :course_id, value: session[:course] %>
+    <div style="display:inline;"><%= Course.find(session[:course]).name if !session[:user].nil?%></div>
 
   </div>
 
