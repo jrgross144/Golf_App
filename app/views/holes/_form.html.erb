@@ -1,0 +1,42 @@
+<%= form_for(hole) do |f| %>
+  <% if hole.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hole.errors.count, "error") %> prohibited this hole from being saved:</h2>
+
+      <ul>
+      <% hole.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hole_number %>
+    <%= f.number_field :hole_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :picture %>
+    <%= f.text_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :par %>
+    <%= f.number_field :par %>
+  </div>
+
+  <div class="field">
+    <%= f.label :yards %>
+    <%= f.number_field :yards %>
+  </div>
+
+  <div class="field">
+    <%= f.label :handicap %>
+    <%= f.number_field :handicap %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
