@@ -1,4 +1,7 @@
 class Course < ApplicationRecord
+  has_many :holes, dependent: :destroy
+
+
   def update_average(round)
     if self.user_average.nil?
       old = 0
@@ -7,7 +10,7 @@ class Course < ApplicationRecord
     end
     num_of_rounds = Round.where(course_id: round.course_id).count
     if num_of_rounds < 2
-      user_average = round.score
+      self.user_average = round.score
     elsif old == 0
       rounds = Round.where(course_id: round.course_id)
       total = 0
