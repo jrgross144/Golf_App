@@ -27,7 +27,7 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @hole.course_id %>
+  <%= Course.find(@hole.course_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_hole_path(@hole) %> |

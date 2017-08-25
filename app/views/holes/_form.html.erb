@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :course_id %>
-    <%= f.number_field :course_id %>
+    <%= f.collection_select :course_id, Course.order(:name),:id,:name %>
   </div>
 
   <div class="actions">

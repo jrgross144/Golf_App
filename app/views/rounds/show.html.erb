@@ -10,5 +10,15 @@
   <%= @round.score %>
 </p>
 
+<p>
+  <strong>Player:</strong>
+  <%= User.find(@round.user_id).name %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= Course.find(@round.course_id).name %>
+</p>
+
 <%= link_to 'Edit', edit_round_path(@round) %> |
 <%= link_to 'Back', rounds_path %>

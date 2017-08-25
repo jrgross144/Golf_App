@@ -23,15 +23,13 @@
 
   <div id="course" class="field">
     <%= f.label :course_id %>
-    <%= f.number_field :course_id, value: session[:course] %>
-    <div style="display:inline;"><%= Course.find(session[:course]).name if !session[:user].nil?%></div>
+    <%= f.collection_select :course_id, Course.order(:name),:id,:name %>
 
   </div>
 
-  <div id="user" onclick="getUser(this)" class="field">
+  <div id="user" class="field">
     <%= f.label :user_id %>
-    <%= f.number_field :user_id, value: session[:user] %>
-    <div style="display:inline;"><%= User.find(session[:user]).name if !session[:user].nil?%></div>
+    <%= f.collection_select :user_id, User.order(:name),:id,:name %>
   </div>
 
 
